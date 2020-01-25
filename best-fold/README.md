@@ -20,7 +20,7 @@ This finds the best restricted fold of the given polypeptide.
 In this case, the polypetide length is `128` and the maximum number of connections is `38`.
 Below is an image corresponding to the fold.
 
-<img src="../resources/exact.png" alt="Exact Fold" height="200px">
+<img src="../resources/exact.png" alt="Exact Fold" height="400px">
 
   * Orange -> `H`
   * Blue -> `P`
