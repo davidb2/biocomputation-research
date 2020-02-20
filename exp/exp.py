@@ -4,9 +4,14 @@ import numpy as np
 
 from decimal import Decimal
 from functools import lru_cache
+from fractions import Fraction
 
 @lru_cache(maxsize=None)
-def E(n)
+def E(n, p):
+  if n == 0: return Fraction(0)
+  return (1-p)*E(n-1,p) + p**2 * sum((1-p)**(j-1)*(1+E(n-(2*j+1),p))
+    for j in range(1, (n-2)//2+1)
+  )
 
 
 def main(args):
