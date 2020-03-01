@@ -13,6 +13,31 @@ def E(n, p):
     for j in range(1, (n-2)//2+1)
   )
 
+@lru_cache(maxsize=None)
+def Eh(n, p):
+  if n == 0: return Fraction(0)
+  return (p)*E(n-1,p) + p**2 * sum((p)**(j-1)*(1+E(n-(2*j+1),p))
+    for j in range(1, (n-2)//2+1)
+  )
+
+@lru_cache(maxsize=None)
+def Ep(n, p):
+  if n == 0: return Fraction(0)
+  return p**2 * (1-p) * sum((1-p)**j*(1+E(n-(2*j+1),p))
+    for j in range(0, (n-2)//2+1)
+  )
+
+@lru_cache(maxsize=None)
+def Oq(n, p):
+  if n == 0: return 0
+  return sum(p*(1-p)**(k-1)*(1+Eq(n-k,p)) for k in range(1, n))
+
+@lru_cache(maxsize=None)
+def Eq(n, p):
+  if n == 0: return 0
+  return sum(p*(1-p)**(k-2)*(1+Oq(n-k,p)) for k in range(2, n))
+
+
 
 def main(args):
   N = args.N
