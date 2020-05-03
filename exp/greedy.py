@@ -28,11 +28,12 @@ def main(args):
   S = args.S
 
   sys.setrecursionlimit(N+10)
-  A = np.random.choice(['H','P'], (S, N))
   # print(ratio(A[0]))
-  print(A)
+  # print(A)
 
-  ans = np.mean([ratio(X) for X in A])
+  # ans = np.mean([ratio(X) for X in A])
+  A = np.random.choice(['H','P'], (S, N))
+  ans = np.mean([greedy(X) for X in A])
   print(ans)
 
 if __name__ == '__main__':
